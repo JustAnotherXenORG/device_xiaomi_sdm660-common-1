@@ -1,18 +1,18 @@
-<manifest version="2.0" type="device" target-level="4">
+<manifest version="5.0" type="device" target-level="4">
     <hal format="hidl">
         <name>android.hardware.audio</name>
         <transport>hwbinder</transport>
         <fqname>@7.0::IDevicesFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>android.hardware.authsecret</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IAuthSecret/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>android.hardware.audio.effect</name>
         <transport>hwbinder</transport>
         <fqname>@7.0::IEffectsFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>android.hardware.authsecret</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IAuthSecret/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.bluetooth</name>
@@ -63,6 +63,11 @@
         <fqname>@4.0::IMapper/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.keymaster</name>
+        <transport>hwbinder</transport>
+        <fqname>@4.0::IKeymasterDevice/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IOmx/default</fqname>
@@ -76,10 +81,10 @@
     <hal format="hidl">
         <name>android.hardware.radio</name>
         <transport>hwbinder</transport>
-        <fqname>@1.5::IRadio/slot1</fqname>
-        <fqname>@1.5::IRadio/slot2</fqname>
         <fqname>@1.2::ISap/slot1</fqname>
         <fqname>@1.2::ISap/slot2</fqname>
+        <fqname>@1.5::IRadio/slot1</fqname>
+        <fqname>@1.5::IRadio/slot2</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.radio.config</name>
@@ -89,14 +94,9 @@
     <hal format="hidl">
         <name>android.hardware.sensors</name>
         <transport>hwbinder</transport>
-        <fqname>@1.0::ISensors/default</fqname>
         <fqname>@1.0::ISensorManager/default</fqname>
+        <fqname>@1.0::ISensors/default</fqname>
     </hal>
-    </hal>
-    <hal format="hidl">
-        <name>android.hardware.usb</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IUsb/default</fqname>
     </hal>
     <hal format="hidl">
         <name>android.hardware.tetheroffload.config</name>
@@ -109,6 +109,11 @@
         <fqname>@1.0::IOffloadControl/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>android.hardware.usb</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IUsb/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>com.dsi.ant</name>
         <transport>hwbinder</transport>
         <version>1.0</version>
@@ -116,6 +121,7 @@
             <name>IAnt</name>
             <instance>default</instance>
         </interface>
+        <fqname>@1.0::IAnt/default</fqname>
     </hal>
     <hal format="hidl">
         <name>com.fingerprints.extension</name>
@@ -185,28 +191,6 @@
         <fqname>@1.0::IAlarm/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.data.iwlan</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IIWlan/slot1</fqname>
-        <fqname>@1.0::IIWlan/slot2</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.data.connection</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.1::IDataConnection/slot1</fqname>
-        <fqname>@1.1::IDataConnection/slot2</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.data.latency</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::ILinkLatency/default</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.factory</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.1::IFactory/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.hardware.bluetooth_audio</name>
         <transport>hwbinder</transport>
         <fqname>@2.1::IBluetoothAudioProvidersFactory/default</fqname>
@@ -227,9 +211,41 @@
         <fqname>@1.0::IService/default</fqname>
     </hal>
     <hal format="hidl">
+        <name>vendor.qti.hardware.data.connection</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IDataConnection/slot1</fqname>
+        <fqname>@1.1::IDataConnection/slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.iwlan</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IIWlan/slot1</fqname>
+        <fqname>@1.0::IIWlan/slot2</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.data.latency</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::ILinkLatency/default</fqname>
+    </hal>
+    <hal format="hidl">
         <name>vendor.qti.hardware.dsp</name>
         <transport>hwbinder</transport>
         <fqname>@1.0::IDspService/dspservice</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.factory</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.1::IFactory/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.fm</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IFmHci/default</fqname>
+    </hal>
+    <hal format="hidl">
+        <name>vendor.qti.hardware.mwqemadapter</name>
+        <transport>hwbinder</transport>
+        <fqname>@1.0::IMwqemAdapter/MwqemAdapter</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.qti.hardware.perf</name>
@@ -331,19 +347,9 @@
         <fqname>@1.0::IImsFactory/default</fqname>
     </hal>
     <hal format="hidl">
-        <name>vendor.qti.hardware.fm</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IFmHci/default</fqname>
-    </hal>
-    <hal format="hidl">
         <name>vendor.qti.imsrtpservice</name>
         <transport>hwbinder</transport>
         <fqname>@3.0::IRTPService/imsrtpservice</fqname>
-    </hal>
-    <hal format="hidl">
-        <name>vendor.qti.hardware.mwqemadapter</name>
-        <transport>hwbinder</transport>
-        <fqname>@1.0::IMwqemAdapter/MwqemAdapter</fqname>
     </hal>
     <hal format="hidl">
         <name>vendor.xiaomi.hardware.mfidoca</name>
