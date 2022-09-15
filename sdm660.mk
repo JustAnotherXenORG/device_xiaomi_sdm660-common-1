@@ -68,7 +68,7 @@ PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
 endif
 
-# Adapt Launch 
+# Adapt Launch
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/lm/AdaptLaunchFeature.xml:$(TARGET_COPY_OUT_VENDOR)/etc/lm/AdaptLaunchFeature.xml
 
@@ -297,14 +297,6 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/configs/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc \
     $(COMMON_PATH)/configs/idc/uinput-goodix.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-goodix.idc
 
-# IFAAService
-PRODUCT_PACKAGES += \
-    org.ifaa.android.manager
-
-# IFAA JAR
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
-
 # IMS
 PRODUCT_PACKAGES += \
     ims-ext-common \
@@ -392,7 +384,7 @@ DEVICE_PACKAGE_OVERLAYS += \
 
 # RRO configuration
 TARGET_USES_RRO := true
-    
+
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
@@ -558,7 +550,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libtinyxml \
     tinyxml2 \
-    libxml2 
+    libxml2
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -610,7 +602,3 @@ PRODUCT_COPY_FILES += \
 # DeviceSettings
 PRODUCT_PACKAGES += \
    DeviceSettings
-   
-# IPA
-USE_DEVICE_SPECIFIC_DATA_IPA_CFG_MGR := true
-USE_DEVICE_SPECIFIC_IPACFG_MGR := true
