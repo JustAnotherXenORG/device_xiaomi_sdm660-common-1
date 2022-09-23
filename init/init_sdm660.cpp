@@ -102,6 +102,14 @@ void property_override_dual(char const system_prop[],
     property_override(vendor_prop, value);
 }
 
+void property_override_multifp(char const buildfp[], char const systemfp[],
+        char const bootimagefp[], char const vendorfp[], char const value[]) {
+    property_override(buildfp, value);
+    property_override(systemfp, value);
+    property_override(bootimagefp, value);
+    property_override(vendorfp, value);
+}
+
 void vendor_load_persist_properties()
 {
     std::string product = GetProperty("ro.product.vendor.device", "");
@@ -109,10 +117,10 @@ void vendor_load_persist_properties()
 
     std::string hw_device;
 
-    char const *hw_id_file = "/sys/devices/platform/HardwareInfo/hw_id";
+    char const *hw_id_file = "/sys/devices/virtual/graphics/fb0/msm_fb_panel_info";
 
     ReadFileToString(hw_id_file, &hw_device);
-    if (hw_device.find("D9P") != std::string::npos) {
+    if (hw_device.find("NT51021_BOE_BOE10") != std::string::npos) {
         property_override("persist.sys.fp.vendor", "fpc");
         property_override("ro.board.variant", "d9p");
         property_override("vendor.display.lcd_density", "265");
@@ -157,9 +165,7 @@ void vendor_load_properties()
     property_override("dalvik.vm.heaptargetutilization", heaptargetutilization);
     property_override("dalvik.vm.heapminfree", heapminfree);
     property_override("dalvik.vm.heapmaxfree", heapmaxfree);
-    
-    property_override_dual("ro.build.fingerprint", "ro.vendor.build.fingerprint", "xiaomi/wayne/wayne:8.1.0/OPM1.171019.011/V9.5.11.0.ODCCNFA:user/release-keys");
-  
+
    std::string product = GetProperty("ro.product.vendor.device", "");	
    if (product.find("whyred") != std::string::npos)
    {
